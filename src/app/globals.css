@@ -8,10 +8,10 @@
   --green: #22ad5a;
 }
 
-
 body {
   color: #111;
   background: #f8f8f8;
+  overflow-x: hidden;
 }
 
 .fcc {

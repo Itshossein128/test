@@ -3,19 +3,183 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #4156d9;
+  --gray: #f4f4f4;
+  --green: #22ad5a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+  background: #f8f8f8;
+}
+
+.fcc {
+  @apply flex items-center justify-center;
+}
+
+.text-shadow {
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+  color: white;
+}
+.nav-list li {
+  @apply relative;
+}
+.nav-list li:not(:last-child):after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 20px;
+  background: #7a7a7a;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 999px;
+}
+header {
+  box-shadow: 0px 0px 20px 0px #00000010;
+  background: white;
+}
+
+.current-level > * {
+  background: #22ad5a;
+  color: white;
+}
+
+.border-custom-dash {
+  position: relative;
+  background: linear-gradient(
+    to right,
+    #dcdcdc 25%,
+    transparent 25%,
+    transparent 75%,
+    #dcdcdc 75%
+  );
+  background-size: 20px 1px; /* اندازه دَش و فاصله (20px کل پترن، 10px دَش و 10px فاصله) */
+  background-repeat: repeat-x;
+  background-position: bottom;
+  padding-bottom: 1px; /* برای اینکه خط زیر محتوا باشه */
+}
+
+.border-custom-dash::after,
+.border-custom-dash::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: #f8f8f8;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 999px;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 5px solid transparent;
+  border-top-color: white;
+}
+.border-custom-dash::after {
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  left: 0;
+  border-right-color: white;
+}
+.border-custom-dash::before {
+  transform: translateX(50%) translateY(-50%) rotate(-45deg);
+  right: 0;
+  border-left-color: white;
+}
+@media screen and (min-width: 1024px) {
+  input[type="radio"] {
+    width: 31px;
+    height: 31px;
+  }
+}
+input[type="radio"] {
+  width: 26px;
+  height: 26px;
+  appearance: none;
+  position: relative;
+}
+input[type="radio"]::after {
+  content: "";
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f1f1f1;
+  border-radius: 6px;
+}
+
+input[type="radio"]:checked:before {
+  content: "";
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/tick-square.png");
+}
+
+.border-custom-dash-2 {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23ff2727' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='75' stroke-linecap='butt'/%3e%3c/svg%3e");
+}
+
+footer li {
+  color: #ababab;
+  margin-top: 15px;
+  @apply transition relative;
+}
+
+footer li:hover {
+  color: #111111;
+}
+footer li:after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: #ababab;
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+footer li:hover:after {
+  background: #111111;
+}
+.right-line {
+  position: relative;
+}
+.right-line::after {
+  content: "";
+  width: 4px;
+  height: 14px;
+  border-radius: 999px;
+  background-color: #4156d9;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-70%);
+  right: -10px;
+}
+
+.right-line-3 {
+  position: relative;
+}
+.right-line-3::after {
+  content: "";
+  width: 4px;
+  height: 66px;
+  background-size: contain;
+  border-radius: 999px;
+  background-image: url("/border-3.png");
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -10px;
 }
